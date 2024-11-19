@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "customer_ap": {
+    "customer_app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/customer_ap",
+            "outputPath": "dist/customer_app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "customer_ap:build:production"
+              "buildTarget": "customer_app:build:production"
             },
             "development": {
-              "buildTarget": "customer_ap:build:development"
+              "buildTarget": "customer_app:build:development"
             }
           },
           "defaultConfiguration": "development"
