@@ -1,7 +1,6 @@
 import connection_handling.ConnectionHandler;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Main {
@@ -15,14 +14,12 @@ public class Main {
         } catch (SQLException ex){
             System.out.println("An error occurred. Maybe user/password is invalid");
             ex.printStackTrace();
-        } finally {
-            if (connection != null) {
-                try {
-                    ConnectionHandler.ConnectionClose(connection);
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-            }
+        }
+
+        try {
+            ConnectionHandler.ConnectionClose(connection);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 }

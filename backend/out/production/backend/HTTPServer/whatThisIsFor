@@ -1,0 +1,2 @@
+This package is intended to contain a custom built server to handle calls to this microservice.
+Onc ethe call is made, it will arrive here and be handled here. All the APIs will be in this package

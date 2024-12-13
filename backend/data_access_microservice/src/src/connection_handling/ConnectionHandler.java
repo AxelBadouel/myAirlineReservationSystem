@@ -3,8 +3,10 @@ package connection_handling;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 public class ConnectionHandler {
+
     public static Connection ConnectionOpen() throws SQLException {
         Connection connection = null;
         String url = "jdbc:mysql://localhost:3306/airlinedata";
