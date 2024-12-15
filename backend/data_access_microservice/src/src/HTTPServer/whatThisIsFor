@@ -1,2 +1,5 @@
 This package is intended to contain a custom built server to handle calls to this microservice.
-Onc ethe call is made, it will arrive here and be handled here. All the APIs will be in this package
+Onc ethe call is made, it will arrive here and be handled here. All the APIs will be in this package.
+For more info on how to do this, check the following link:
+
+https://tipseason.com/simple-http-server-socket-java/
