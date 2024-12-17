@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public record FlightsDao(Integer flight_id,
                          LocalDateTime datetime_of_flight,
-                         Boolean status,
+                         Boolean flight_status,
                          Integer duration_of_flight,
                          String city_departure,
                          String city_destination,
