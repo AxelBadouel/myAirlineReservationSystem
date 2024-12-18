@@ -12,7 +12,9 @@ public record FlightsDao(Integer flight_id,
                          String city_destination,
                          Double ticket_cost) implements Serializable {
     public FlightsDao {
-        Objects.requireNonNull(flight_id);
+        Objects.requireNonNull(datetime_of_flight);
+        Objects.requireNonNull(city_departure);
+        Objects.requireNonNull(city_destination);
 
         if(city_departure.equals(city_destination)) {
             throw new RuntimeException("City of departure and arrival cannot be the same");

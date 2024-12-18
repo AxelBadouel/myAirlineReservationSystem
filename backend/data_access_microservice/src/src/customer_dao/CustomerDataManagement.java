@@ -93,6 +93,9 @@ public class CustomerDataManagement {
         if(customerDao == null) {
             throw new RuntimeException("The CustomerDao object provided is null");
         }
+        if(customerDao.customer_id() == null) {
+            throw  new RuntimeException("The id of this object is null");
+        }
 
         PreparedStatement preparedStatement = connection.prepareStatement(CustomerQueries.UPDATE);
 

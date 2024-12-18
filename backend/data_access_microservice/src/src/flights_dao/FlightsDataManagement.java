@@ -88,6 +88,9 @@ public class FlightsDataManagement {
         if(flightsDao == null) {
             throw new RuntimeException("The FlightsDao object provided is null");
         }
+        if(flightsDao.flight_id() == null) {
+            throw  new RuntimeException("The id of this object is null");
+        }
 
         PreparedStatement preparedStatement = connection.prepareStatement(FlightQueries.UPDATE);
 
