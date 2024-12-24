@@ -1,17 +1,30 @@
 package connection_handling;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class ConnectionHandler {
 
+    static String propertyFilePath = "C:\\Users\\simob\\Desktop\\Git Awesome Projects\\myAirlineReservationSystem\\backend\\data_access_microservice\\src\\resources\\application.properties";
+
     public static Connection ConnectionOpen() throws SQLException {
-        Connection connection = null;
-        String url = "jdbc:mysql://localhost:3306/airlinedata";
-        String username = "user";
-        String password = "M!SqLW0rd";
+        Properties properties = new Properties();
+        Connection connection;
+        try (InputStream input = new FileInputStream(propertyFilePath)) {
+            System.out.println(input.toString());
+            properties.load(input);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        String url = properties.getProperty("database.url");
+        String username = properties.getProperty("database.username");
+        String password = properties.getProperty("database.password");
 
         connection = DriverManager.getConnection(url, username, password);
         if (connection != null) {

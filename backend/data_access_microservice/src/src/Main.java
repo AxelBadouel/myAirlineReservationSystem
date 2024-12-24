@@ -1,5 +1,7 @@
 import connection_handling.ConnectionHandler;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 
