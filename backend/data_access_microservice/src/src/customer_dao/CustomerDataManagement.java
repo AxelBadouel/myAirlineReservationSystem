@@ -1,6 +1,7 @@
 package customer_dao;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerDataManagement {
@@ -26,6 +27,7 @@ public class CustomerDataManagement {
         preparedStatement.setInt(5, customerDao.booking_status());
         preparedStatement.setDouble(6, customerDao.ticket_cost());
         preparedStatement.setString(7, customerDao.email());
+        preparedStatement.setInt(8, customerDao.flight_id());
 
         int rowsInserted = preparedStatement.executeUpdate();
         if(rowsInserted > 0) {
@@ -36,7 +38,7 @@ public class CustomerDataManagement {
     }
 
     public List<CustomerDao> getAllCustomer() throws SQLException {
-        List<CustomerDao> customers = null;
+        List<CustomerDao> customers = new ArrayList<CustomerDao>();
 
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(CustomerQueries.GET_ALL);
@@ -56,7 +58,8 @@ public class CustomerDataManagement {
                     resultSet.getTimestamp("datetime_of_flight").toLocalDateTime(),
                     resultSet.getInt("booking_status"),
                     resultSet.getDouble("ticket_cost"),
-                    resultSet.getString("email"));
+                    resultSet.getString("email"),
+                    resultSet.getInt("flight_id"));
 
             customers.add(customerDao);
         }
@@ -79,7 +82,8 @@ public class CustomerDataManagement {
                     resultSet.getTimestamp("datetime_of_flight").toLocalDateTime(),
                     resultSet.getInt("booking_status"),
                     resultSet.getDouble("ticket_cost"),
-                    resultSet.getString("email"));
+                    resultSet.getString("email"),
+                    resultSet.getInt("flight_id"));
 
             System.out.println("Data retrieved successfully");
         } else {
@@ -109,7 +113,8 @@ public class CustomerDataManagement {
         preparedStatement.setInt(5, customerDao.booking_status());
         preparedStatement.setDouble(6, customerDao.ticket_cost());
         preparedStatement.setString(7, customerDao.email());
-        preparedStatement.setInt(8, customerDao.customer_id());
+        preparedStatement.setInt(8, customerDao.flight_id());
+        preparedStatement.setInt(9, customerDao.customer_id());
 
         int rowsInserted = preparedStatement.executeUpdate();
         if(rowsInserted > 0) {

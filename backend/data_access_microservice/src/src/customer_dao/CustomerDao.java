@@ -11,7 +11,8 @@ public record CustomerDao(Integer customer_id,
                           LocalDateTime datetime_of_flight,
                           Integer booking_status,
                           Double ticket_cost,
-                          String email) implements Serializable {
+                          String email,
+                          int flight_id) implements Serializable {
 
     public CustomerDao {
         Objects.requireNonNull(customer_id);

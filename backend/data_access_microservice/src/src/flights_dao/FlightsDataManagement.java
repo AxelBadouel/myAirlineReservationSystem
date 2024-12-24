@@ -1,6 +1,7 @@
 package flights_dao;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FlightsDataManagement {
@@ -33,7 +34,7 @@ public class FlightsDataManagement {
     }
 
     public List<FlightsDao> getAllFlights() throws SQLException {
-        List<FlightsDao> flights = null;
+        List<FlightsDao> flights = new ArrayList<FlightsDao>();
 
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(FlightQueries.GET_ALL);
