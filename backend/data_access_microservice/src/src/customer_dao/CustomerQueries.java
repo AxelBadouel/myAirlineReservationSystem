@@ -5,5 +5,5 @@ class CustomerQueries {
     public static final String GET_WITH_ID = "SELECT * FROM customer_data WHERE customer_id=?";
     public static final String GET_ALL = "SELECT * FROM customer_data";
     public static final String UPDATE = "UPDATE customer_data SET customer_name=?, city_departure=?, city_destination=?, datetime_of_flight=?, booking_status=?, ticket_cost=?, email=?, flight_id=? WHERE customer_id=?";
-    public static final String DELETE_WITH_ID = "DELETE FROM customer_data WHERE customer_id=?";
+    public static final String DELETE_WITH_ID = "DELETE FROM customer_data WHERE customer_id=?; ALTER TABLE customer_data AUTO_INCREMENT = 1;";
 }

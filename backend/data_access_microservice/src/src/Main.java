@@ -15,7 +15,7 @@ public class Main {
         Connection connection = mainConnectionOpener();
         CustomerDataManagement customerDataManagement = new CustomerDataManagement(connection);
 
-        /*DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         CustomerDao customerDao = new CustomerDao(55,
                 "Malik Bayes",
                  "San Antonio",
@@ -25,15 +25,21 @@ public class Main {
                    536.0,
                        "malikbayes@example.com",
                       4);
-        System.out.println(customerDao.toString());*/
+        System.out.println(customerDao.toString());
 
         try {
-            int deleted = customerDataManagement.deleteCustomer(54);
+            //int inserted = customerDataManagement.insertNewCustomer(customerDao);
+            int deleted = customerDataManagement.deleteCustomer(56);
             if (deleted > 0) {
                 System.out.println("Customer deleted successfully");
             } else {
                 System.out.println("Issue with the customers retrieval");
             }
+            /*if(inserted > 0) {
+                System.out.println("Inserted successfully");
+            } else {
+                System.out.println("Not successfully inserted");
+            }*/
         } catch (SQLException e) {
             System.out.println("Error adding the user");
         }
